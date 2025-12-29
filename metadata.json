@@ -1,6 +1,6 @@
 {
-  "name": "LinguistAI - Universal Language Master",
-  "description": "An AI-powered language learning platform featuring interactive lessons, visual vocabulary, and real-time voice conversations using Gemini Live.",
+  "name": "LinguistAI Master Intelligence",
+  "description": "Super-powered AI language platform with AI Master Teacher feedback, educational facts, and gamified learning rewards.",
   "requestFramePermissions": [
     "microphone"
   ]

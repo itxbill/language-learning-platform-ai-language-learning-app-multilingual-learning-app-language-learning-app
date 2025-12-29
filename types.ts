@@ -22,6 +22,12 @@ export interface Lesson {
   examples: { original: string; translated: string }[];
   questType: 'discovery' | 'battle' | 'stealth';
   difficulty: number;
+  scientificCategory: 'geology' | 'biology' | 'astronomy' | 'physics' | 'culture';
+  educationalFact?: {
+    topic: string;
+    fact: string;
+    imagePrompt: string;
+  };
 }
 
 export interface QuizQuestion {
@@ -37,7 +43,30 @@ export interface PowerUp {
   icon: string;
   description: string;
   cost: number;
-  effect: 'shield' | 'xp_boost' | 'extra_time';
+  effect: 'shield' | 'xp_boost' | 'extra_time' | 'streak_freeze';
+}
+
+export interface AIFeedback {
+  grammar: string;
+  pronunciation: string;
+  naturalness: string;
+  score: number;
+  phonetics: string;
+}
+
+export interface Achievement {
+  id: string;
+  title: string;
+  icon: string;
+  description: string;
+  isUnlocked: boolean;
+}
+
+export interface DailyGoal {
+  id: string;
+  text: string;
+  isCompleted: boolean;
+  rewardGems: number;
 }
 
 export interface GameState {
@@ -47,12 +76,14 @@ export interface GameState {
   level: number;
   gems: number;
   streak: number;
-  streakProgress: boolean[]; // 7-day history (e.g., [true, true, false, ...])
-  lastLoginDate: string; // ISO string
+  streakProgress: boolean[]; // 7-day history (Mon-Sun)
+  lastLoginDate: string;
   inventory: VocabularyItem[];
   unlockedRegions: string[];
   powerups: { [key: string]: number };
   activeBuffs: string[];
+  achievements: Achievement[];
+  dailyGoals: DailyGoal[];
 }
 
-export type AppView = 'map' | 'quest' | 'battle' | 'oracle' | 'archive' | 'shop' | 'share' | 'streak';
+export type AppView = 'map' | 'quest' | 'battle' | 'oracle' | 'archive' | 'shop' | 'share' | 'streak' | 'teacher' | 'minigame' | 'cooldown' | 'leaderboard';
